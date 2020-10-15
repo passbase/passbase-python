@@ -118,12 +118,6 @@ class ProjectSettingsCustomizations(object):
         :param font_family: The font_family of this ProjectSettingsCustomizations.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Arial", "Exo", "Open Sans", "Lato", "Baskerville"]  # noqa: E501
-        if font_family not in allowed_values:
-            raise ValueError(
-                "Invalid value for `font_family` ({0}), must be one of {1}"  # noqa: E501
-                .format(font_family, allowed_values)
-            )
 
         self._font_family = font_family
 
