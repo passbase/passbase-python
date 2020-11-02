@@ -32,6 +32,101 @@ class IdentityApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def get_identity_by_id(self, id, **kwargs):  # noqa: E501
+        """Get identity  # noqa: E501
+
+        Retrieve an identity by providing the identity ID.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_identity_by_id(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: Unique ID of the identity to return (required)
+        :return: Identity
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.get_identity_by_id_with_http_info(id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_identity_by_id_with_http_info(id, **kwargs)  # noqa: E501
+            return data
+
+    def get_identity_by_id_with_http_info(self, id, **kwargs):  # noqa: E501
+        """Get identity  # noqa: E501
+
+        Retrieve an identity by providing the identity ID.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_identity_by_id_with_http_info(id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str id: Unique ID of the identity to return (required)
+        :return: Identity
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_identity_by_id" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'id' is set
+        if ('id' not in params or
+                params['id'] is None):
+            raise ValueError("Missing the required parameter `id` when calling `get_identity_by_id`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in params:
+            path_params['id'] = params['id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['SecretApiKey']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/identities/{id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='Identity',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_identity_resource_by_id(self, id, resource_id, **kwargs):  # noqa: E501
         """Get resource  # noqa: E501
 
@@ -120,7 +215,7 @@ class IdentityApi(object):
         auth_settings = ['SecretApiKey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/identities/{id}/resource/{resource_id}', 'GET',
+            '/identity/{id}/resources/{resource_id}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -128,101 +223,6 @@ class IdentityApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Resource',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def get_identy_by_id(self, id, **kwargs):  # noqa: E501
-        """Get identity  # noqa: E501
-
-        Retrieve an identity by providing the identity ID.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_identy_by_id(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str id: Unique ID of the identity to return (required)
-        :return: list[Identity]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_identy_by_id_with_http_info(id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_identy_by_id_with_http_info(id, **kwargs)  # noqa: E501
-            return data
-
-    def get_identy_by_id_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Get identity  # noqa: E501
-
-        Retrieve an identity by providing the identity ID.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_identy_by_id_with_http_info(id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str id: Unique ID of the identity to return (required)
-        :return: list[Identity]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_identy_by_id" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'id' is set
-        if ('id' not in params or
-                params['id'] is None):
-            raise ValueError("Missing the required parameter `id` when calling `get_identy_by_id`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'id' in params:
-            path_params['id'] = params['id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['SecretApiKey']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/identities/{id}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[Identity]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -413,7 +413,7 @@ class IdentityApi(object):
         auth_settings = ['SecretApiKey']  # noqa: E501
 
         return self.api_client.call_api(
-            '/identities/{id}/resources', 'GET',
+            '/identity/{id}/resources', 'GET',
             path_params,
             query_params,
             header_params,

@@ -60,15 +60,14 @@ configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = passbase.IdentityApi(passbase.ApiClient(configuration))
-id = 'id_example' # str | Identity id
-resource_id = 'resource_id_example' # str | Resource id
+id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | Unique ID of the identity to return
 
 try:
-    # Get resource
-    api_response = api_instance.get_identity_resource_by_id(id, resource_id)
+    # Get identity
+    api_response = api_instance.get_identity_by_id(id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling IdentityApi->get_identity_resource_by_id: %s\n" % e)
+    print("Exception when calling IdentityApi->get_identity_by_id: %s\n" % e)
 
 # Configure API key authorization: SecretApiKey
 configuration = passbase.Configuration()
@@ -78,14 +77,15 @@ configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = passbase.IdentityApi(passbase.ApiClient(configuration))
-id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # str | Unique ID of the identity to return
+id = 'id_example' # str | Identity id
+resource_id = 'resource_id_example' # str | Resource id
 
 try:
-    # Get identity
-    api_response = api_instance.get_identy_by_id(id)
+    # Get resource
+    api_response = api_instance.get_identity_resource_by_id(id, resource_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling IdentityApi->get_identy_by_id: %s\n" % e)
+    print("Exception when calling IdentityApi->get_identity_resource_by_id: %s\n" % e)
 
 # Configure API key authorization: SecretApiKey
 configuration = passbase.Configuration()
@@ -131,10 +131,10 @@ All URIs are relative to *https://api.passbase.com/verification/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*IdentityApi* | [**get_identity_resource_by_id**](docs/IdentityApi.md#get_identity_resource_by_id) | **GET** /identities/{id}/resource/{resource_id} | Get resource
-*IdentityApi* | [**get_identy_by_id**](docs/IdentityApi.md#get_identy_by_id) | **GET** /identities/{id} | Get identity
+*IdentityApi* | [**get_identity_by_id**](docs/IdentityApi.md#get_identity_by_id) | **GET** /identities/{id} | Get identity
+*IdentityApi* | [**get_identity_resource_by_id**](docs/IdentityApi.md#get_identity_resource_by_id) | **GET** /identity/{id}/resources/{resource_id} | Get resource
 *IdentityApi* | [**list_identities**](docs/IdentityApi.md#list_identities) | **GET** /identities | List identities
-*IdentityApi* | [**list_identity_resources**](docs/IdentityApi.md#list_identity_resources) | **GET** /identities/{id}/resources | List resources
+*IdentityApi* | [**list_identity_resources**](docs/IdentityApi.md#list_identity_resources) | **GET** /identity/{id}/resources | List resources
 *ProjectApi* | [**get_settings**](docs/ProjectApi.md#get_settings) | **GET** /settings | Get project settings
 
 ## Documentation For Models

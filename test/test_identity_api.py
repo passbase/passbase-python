@@ -28,17 +28,17 @@ class TestIdentityApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_get_identity_by_id(self):
+        """Test case for get_identity_by_id
+
+        Get identity  # noqa: E501
+        """
+        pass
+
     def test_get_identity_resource_by_id(self):
         """Test case for get_identity_resource_by_id
 
         Get resource  # noqa: E501
-        """
-        pass
-
-    def test_get_identy_by_id(self):
-        """Test case for get_identy_by_id
-
-        Get identity  # noqa: E501
         """
         pass
 
