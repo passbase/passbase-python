@@ -24,6 +24,7 @@ from passbase.configuration import Configuration
 from passbase.models.cursor import Cursor
 from passbase.models.data_points import DataPoints
 from passbase.models.identity import Identity
+from passbase.models.identity_owner import IdentityOwner
 from passbase.models.identity_resource import IdentityResource
 from passbase.models.paginated_identities import PaginatedIdentities
 from passbase.models.paginated_resources import PaginatedResources

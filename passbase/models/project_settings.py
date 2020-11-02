@@ -94,7 +94,7 @@ class ProjectSettings(object):
     def slug(self):
         """Gets the slug of this ProjectSettings.  # noqa: E501
 
-        slugs are meant to be a way to verify people just with the link  # noqa: E501
+        Slugs are meant to be a way to verify people just with the link  # noqa: E501
 
         :return: The slug of this ProjectSettings.  # noqa: E501
         :rtype: str
@@ -105,7 +105,7 @@ class ProjectSettings(object):
     def slug(self, slug):
         """Sets the slug of this ProjectSettings.
 
-        slugs are meant to be a way to verify people just with the link  # noqa: E501
+        Slugs are meant to be a way to verify people just with the link  # noqa: E501
 
         :param slug: The slug of this ProjectSettings.  # noqa: E501
         :type: str

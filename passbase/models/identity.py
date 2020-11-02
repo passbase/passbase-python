@@ -30,6 +30,8 @@ class Identity(object):
     swagger_types = {
         'id': 'str',
         'status': 'str',
+        'owner': 'IdentityOwner',
+        'score': 'float',
         'created': 'int',
         'updated': 'int',
         'resources': 'list[IdentityResource]',
@@ -39,16 +41,20 @@ class Identity(object):
     attribute_map = {
         'id': 'id',
         'status': 'status',
+        'owner': 'owner',
+        'score': 'score',
         'created': 'created',
         'updated': 'updated',
         'resources': 'resources',
         'watchlist': 'watchlist'
     }
 
-    def __init__(self, id=None, status=None, created=None, updated=None, resources=None, watchlist=None):  # noqa: E501
+    def __init__(self, id=None, status=None, owner=None, score=None, created=None, updated=None, resources=None, watchlist=None):  # noqa: E501
         """Identity - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._status = None
+        self._owner = None
+        self._score = None
         self._created = None
         self._updated = None
         self._resources = None
@@ -58,6 +64,10 @@ class Identity(object):
             self.id = id
         if status is not None:
             self.status = status
+        if owner is not None:
+            self.owner = owner
+        if score is not None:
+            self.score = score
         if created is not None:
             self.created = created
         if updated is not None:
@@ -118,6 +128,50 @@ class Identity(object):
             )
 
         self._status = status
+
+    @property
+    def owner(self):
+        """Gets the owner of this Identity.  # noqa: E501
+
+
+        :return: The owner of this Identity.  # noqa: E501
+        :rtype: IdentityOwner
+        """
+        return self._owner
+
+    @owner.setter
+    def owner(self, owner):
+        """Sets the owner of this Identity.
+
+
+        :param owner: The owner of this Identity.  # noqa: E501
+        :type: IdentityOwner
+        """
+
+        self._owner = owner
+
+    @property
+    def score(self):
+        """Gets the score of this Identity.  # noqa: E501
+
+        Float between 0 and 1 representing our confidence that this identity is valid. 0 meaning we couldn't verify any of the information provided with accuracy, and 1 absolute confidence.  # noqa: E501
+
+        :return: The score of this Identity.  # noqa: E501
+        :rtype: float
+        """
+        return self._score
+
+    @score.setter
+    def score(self, score):
+        """Sets the score of this Identity.
+
+        Float between 0 and 1 representing our confidence that this identity is valid. 0 meaning we couldn't verify any of the information provided with accuracy, and 1 absolute confidence.  # noqa: E501
+
+        :param score: The score of this Identity.  # noqa: E501
+        :type: float
+        """
+
+        self._score = score
 
     @property
     def created(self):

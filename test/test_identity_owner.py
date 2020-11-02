@@ -1,6 +1,5 @@
 # coding: utf-8
 
-# flake8: noqa
 """
     Verification API
 
@@ -13,24 +12,28 @@
 
 from __future__ import absolute_import
 
-# import models into model package
-from passbase.models.cursor import Cursor
-from passbase.models.data_points import DataPoints
-from passbase.models.identity import Identity
-from passbase.models.identity_owner import IdentityOwner
-from passbase.models.identity_resource import IdentityResource
-from passbase.models.paginated_identities import PaginatedIdentities
-from passbase.models.paginated_resources import PaginatedResources
-from passbase.models.project_settings import ProjectSettings
-from passbase.models.project_settings_customizations import ProjectSettingsCustomizations
-from passbase.models.project_settings_verification_steps import ProjectSettingsVerificationSteps
-from passbase.models.resource import Resource
-from passbase.models.resource_file import ResourceFile
-from passbase.models.resource_files import ResourceFiles
-from passbase.models.resource_files_inner import ResourceFilesInner
-from passbase.models.resource_files_input import ResourceFilesInput
-from passbase.models.resource_files_input_inner import ResourceFilesInputInner
-from passbase.models.resource_input import ResourceInput
-from passbase.models.resource_type import ResourceType
-from passbase.models.user import User
-from passbase.models.watchlist_response import WatchlistResponse
+import unittest
+
+import passbase
+from passbase.models.identity_owner import IdentityOwner  # noqa: E501
+from passbase.rest import ApiException
+
+
+class TestIdentityOwner(unittest.TestCase):
+    """IdentityOwner unit test stubs"""
+
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+    def testIdentityOwner(self):
+        """Test IdentityOwner"""
+        # FIXME: construct object with mandatory attributes with example values
+        # model = passbase.models.identity_owner.IdentityOwner()  # noqa: E501
+        pass
+
+
+if __name__ == '__main__':
+    unittest.main()
