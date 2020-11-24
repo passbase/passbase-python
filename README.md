@@ -95,6 +95,25 @@ configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = passbase.IdentityApi(passbase.ApiClient(configuration))
+id = 'id_example' # str | Identity id
+resource_id = 'resource_id_example' # str | Resource id
+resource_file_id = 'resource_file_id_example' # str | Resource file id
+
+try:
+    # Get resource file
+    api_response = api_instance.get_identity_resource_file_by_id(id, resource_id, resource_file_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling IdentityApi->get_identity_resource_file_by_id: %s\n" % e)
+
+# Configure API key authorization: SecretApiKey
+configuration = passbase.Configuration()
+configuration.api_key['X-API-KEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-API-KEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = passbase.IdentityApi(passbase.ApiClient(configuration))
 limit = 56 # int |  (optional)
 cursor = 'cursor_example' # str |  (optional)
 
@@ -133,6 +152,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *IdentityApi* | [**get_identity_by_id**](docs/IdentityApi.md#get_identity_by_id) | **GET** /identities/{id} | Get identity
 *IdentityApi* | [**get_identity_resource_by_id**](docs/IdentityApi.md#get_identity_resource_by_id) | **GET** /identity/{id}/resources/{resource_id} | Get resource
+*IdentityApi* | [**get_identity_resource_file_by_id**](docs/IdentityApi.md#get_identity_resource_file_by_id) | **GET** /identity/{id}/resources/{resource_id}/resource_files/{resource_file_id} | Get resource file
 *IdentityApi* | [**list_identities**](docs/IdentityApi.md#list_identities) | **GET** /identities | List identities
 *IdentityApi* | [**list_identity_resources**](docs/IdentityApi.md#list_identity_resources) | **GET** /identity/{id}/resources | List resources
 *ProjectApi* | [**get_settings**](docs/ProjectApi.md#get_settings) | **GET** /settings | Get project settings

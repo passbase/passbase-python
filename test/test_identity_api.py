@@ -42,6 +42,13 @@ class TestIdentityApi(unittest.TestCase):
         """
         pass
 
+    def test_get_identity_resource_file_by_id(self):
+        """Test case for get_identity_resource_file_by_id
+
+        Get resource file  # noqa: E501
+        """
+        pass
+
     def test_list_identities(self):
         """Test case for list_identities
 
