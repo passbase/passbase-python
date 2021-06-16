@@ -35,6 +35,7 @@ class Identity(object):
         'created': 'int',
         'updated': 'int',
         'resources': 'list[IdentityResource]',
+        'metadata': 'object',
         'watchlist': 'WatchlistResponse'
     }
 
@@ -46,10 +47,11 @@ class Identity(object):
         'created': 'created',
         'updated': 'updated',
         'resources': 'resources',
+        'metadata': 'metadata',
         'watchlist': 'watchlist'
     }
 
-    def __init__(self, id=None, status=None, owner=None, score=None, created=None, updated=None, resources=None, watchlist=None):  # noqa: E501
+    def __init__(self, id=None, status=None, owner=None, score=None, created=None, updated=None, resources=None, metadata=None, watchlist=None):  # noqa: E501
         """Identity - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._status = None
@@ -58,6 +60,7 @@ class Identity(object):
         self._created = None
         self._updated = None
         self._resources = None
+        self._metadata = None
         self._watchlist = None
         self.discriminator = None
         if id is not None:
@@ -74,6 +77,8 @@ class Identity(object):
             self.updated = updated
         if resources is not None:
             self.resources = resources
+        if metadata is not None:
+            self.metadata = metadata
         if watchlist is not None:
             self.watchlist = watchlist
 
@@ -241,6 +246,29 @@ class Identity(object):
         """
 
         self._resources = resources
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this Identity.  # noqa: E501
+
+        Customer defined arbitrary payload initially passed through the client-sdk  # noqa: E501
+
+        :return: The metadata of this Identity.  # noqa: E501
+        :rtype: object
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this Identity.
+
+        Customer defined arbitrary payload initially passed through the client-sdk  # noqa: E501
+
+        :param metadata: The metadata of this Identity.  # noqa: E501
+        :type: object
+        """
+
+        self._metadata = metadata
 
     @property
     def watchlist(self):

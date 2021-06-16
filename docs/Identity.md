@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **created** | **int** | Unix-timestamp of when the identity was created | [optional] 
 **updated** | **int** | Unix-timestamp of when the identity was updated | [optional] 
 **resources** | [**list[IdentityResource]**](IdentityResource.md) | resources attached to a verification | [optional] 
+**metadata** | **object** | Customer defined arbitrary payload initially passed through the client-sdk | [optional] 
 **watchlist** | [**WatchlistResponse**](WatchlistResponse.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
