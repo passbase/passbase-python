@@ -13,14 +13,14 @@ from pprint import pprint
 configuration = passbase.Configuration()
 configuration.api_key["X-API-KEY"] = "{{YOUR_SECRET_API_KEY}}"
 api_client = passbase.ApiClient(configuration)
-api_instance = passbase.ProjectApi(api_client)
+api_instance = passbase.IdentityApi(api_client)
 
 try:
     # Get project settings
-    api_response = api_instance.get_settings()
+    api_response = api_instance.get_identity_by_id("<uuid>")
     pprint(api_response)
 
 except Exception as e:
-    print("Exception when calling ProjectApi->get_settings: %s\n" % e)
+    print("Exception when calling IdentityApi->get_identity_by_id: %s\n" % e)
 
 ```
